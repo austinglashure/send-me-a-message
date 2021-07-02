@@ -1,7 +1,9 @@
 from etext import send_sms_via_email
+import getQuote
 
 phone_number = "321-208-6947"
-message = "your mom suck me good and hard through my jorts"
+obj = getQuote.Quote("quotes.txt")
+message = obj.message + '\n' + obj.author
 provider = "Metro PCS"
 stmp_server = "stmp.gmail.com"
 stmp_port = 465
