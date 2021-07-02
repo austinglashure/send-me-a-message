@@ -1,18 +1,24 @@
 import random
 
-quotes = open("quotes.txt", 'r')
-quotes_list = quotes.readlines()
+class Quote:
+    def __init__(self, filename):
+        self.name = str(filename)
+        self.getQuote()
 
-def get_valid_random_line():
-    running = True
-    while running:
-        foo = random.randint(0, len(quotes_list))
-        if foo % 2 == 0:
-            running = False
-    return foo
+    def prepareList(self):
+        temp = open(self.name, 'r')
+        self.quotes = temp.readlines()
+    
+    def makeRandomline(self):
+        running = True
+        while running:
+            foo = random.randint(0, len(self.quotes))
+            if foo % 2 == 0:
+                running = False
+        self.line_number = foo
 
-num = get_valid_random_line()
-print(quotes_list[num], quotes_list[num + 1])
-
-quotes.close()
-print("done")
+    def getQuote(self):
+        self.prepareList()
+        self.makeRandomline()
+        self.text = self.quotes[self.line_number]
+        self.author = self.quotes[self.line_number + 1]
