@@ -3,7 +3,7 @@ import getQuote
 
 phone_number = "321-208-6947"
 obj = getQuote.Quote("quotes.txt")
-message = obj.message + '\n' + obj.author
+message = obj.text + '\n' + obj.author
 provider = "Metro PCS"
 stmp_server = "stmp.gmail.com"
 stmp_port = 465
